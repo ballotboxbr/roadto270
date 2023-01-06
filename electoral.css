@@ -1,0 +1,519 @@
+@font-face {font-family:CondBold; src: url("assets/fonts/Flama-Cond-Bold.otf")}
+@font-face {font-family:CondSemi; src: url("assets/fonts/Flama-Cond-Semibold.otf")}
+@font-face {font-family:CondMedium; src: url("assets/fonts/Flama-Cond-Medium.otf")}
+@font-face {font-family:CondBasic; src: url("assets/fonts/Flama-Cond-Basic.otf")}
+@font-face {font-family:SemiBasic; src: url("assets/fonts/Flama-Semi-Basic.otf")}
+@font-face {font-family:SemiMedium; src: url("assets/fonts/Flama-Semi-Medium.otf")}
+@font-face {font-family:SemiBold; src: url("assets/fonts/Flama-Semi-Bold.otf")}
+@font-face {font-family:FlamaSemibold; src: url("assets/fonts/Flama-Semibold.otf")}
+@font-face {font-family:FlamaMedium; src: url("assets/fonts/Flama-Medium.otf")}
+@font-face {font-family:FlamaBasic; src: url("assets/fonts/Flama-Basic.otf")}
+@font-face {font-family:FlamaBook; src: url("assets/fonts/Flama-Book.otf")}
+
+html {
+   	font-family: CNNMedium, sans-serif;
+	font-variant-numeric: tabular-nums;
+	cursor: pointer;
+}
+
+.unselectable {
+	-o-user-select: none; -webkit-user-select: none;
+	-webkit-touch-callout: none; -khtml-user-select: none;
+	-moz-user-select: none; -ms-user-select: none;
+}
+
+#bkgdGrad {background-color: rgb(46,56,75);}
+
+.svgText {pointer-events: auto;}
+
+#nationalMap {
+	position: absolute; display: inline-block; justify-content: center;
+  	top: 23.5%; right: 5.5%; margin-top: 0%;
+	opacity: 1; transition: 0.5s;
+	border: 0px solid white;
+}
+
+#nationalMap.paths {margin-top: 2%;}
+
+#testingBox {	
+	text-align: left;
+	width: 520px;
+	font-size: 48px;
+	letter-spacing: -1.5px;
+	color: #fff;
+	cursor:none;
+}
+
+.st0 {
+	pointer-events: none; user-select: none;
+    	-o-user-select: none; -webkit-touch-callout: none;
+    	-webkit-user-select: none; -khtml-user-select: none;
+	-moz-user-select: none; -ms-user-select: none;
+}
+
+.state {fill: var(--stateColor); stroke: #fff; stroke-width: 1px;}
+.redProj {fill: var(--redProjectionColor); stroke: #fff; stroke-width: 1px;}
+.redState {fill: var(--redStateColor); stroke: #fff; stroke-width: 1px;}
+.blueProj {fill: var(--blueProjectionColor); stroke: #fff; stroke-width: 1px;}
+.blueState {fill: var(--blueStateColor); stroke: #fff; stroke-width: 1px;}
+.yellowState {fill: var(--yellowStateColor); stroke: #fff; stroke-width: 1px;}
+.pollsClosed {fill: var(--pollsClosedColor); stroke: #fff; stroke-width: 1px;}
+
+.stateBox {fill: transparent; stroke: rgb(46,56,75); stroke-width: 1.25px;}
+
+#totals {
+	table-layout: fixed; text-align: center;
+	cursor: none;
+	color: white;
+	position: fixed;
+  	left: 50px; top: 250px;		
+}
+
+#headingBox {
+	font-family: SemiBold, sans-serif;
+	table-layout: fixed;
+	color: rgb(0,0,0,0);
+	border-collapse: collapse;
+	position: fixed;
+  	left: 0px;
+  	top: 0px;
+	width: 0%;
+	height: 17%;
+	font-size: 24px;
+	text-align: left;
+	text-indent: 50px;
+	background-color: rgb(68,79,94);
+	transition: height 0.7s;
+}
+
+#longPressDataBox {
+	font-family:'FlamaSemibold';
+	table-layout: fixed; position: fixed;
+	border-collapse: collapse;
+  	right: 90px; top: 170px;
+	width: 10%; height: 6%;
+	font-size: 42px;
+	line-height: 48px; letter-spacing: -0.5px;
+	text-align: center; color: white;
+	opacity: 0; border-radius: 4px;
+}
+
+#longPressDataBox.animated {background-color: rgba(73,81,95,0.6); opacity: 1;}
+
+#pathsBox {
+	font-family:'FlamaSemibold';
+	table-layout: fixed; position: fixed;
+	border-collapse: collapse;
+  	left: 385px; top: 178px;
+	width: 1025px; height: 6%;
+	font-size: 42px;
+	line-height: 48px; letter-spacing: -0.5px;
+	text-align: center; color: white;
+	background-color: red;
+	opacity: 0; border-radius: 4px;
+}
+
+#demCandidate,#gopCandidate {
+	position: fixed; table-layout: fixed;
+	top: 178px;
+	width: 160px; height: 200px;
+	transition: 0.7s, background-color 0s;
+	clip-path: inset(0 0 0 0);
+}
+
+#demCandidate {background-color: var(--blueProjectionColor); left: 30px;}
+#gopCandidate {background-color: var(--redProjectionColor); left: 205px;}
+
+#demSurname, #gopSurname {
+	font-family: SemiBold, sans-serif;
+	position: fixed; table-layout: fixed;
+	color: #fff;
+	top: 328px; height: 50px;
+	font-size: 36px; line-height: 32px;
+	text-align: center;
+	cursor: url('assets/cursor.png'),auto;
+	transition: 0.7s, left, font-size, color, font-family, transform;
+	text-overflow: string; text-transform: uppercase;
+	background-color: rgb(255,255,255,0);
+	clip-path: inset(0px -10px 0px -10px);
+	text-overflow: string; white-space: nowrap; transform-origin: center;
+}
+
+#demSurname {left: 40px;}
+#gopSurname {left: 215px;}
+
+#candidateCoverLeft, #candidateCoverRight {
+	table-layout: fixed; position: fixed;
+	top: 178px; height: 200px;
+	background-color: #2e384b;
+	opacity: 0;
+}
+
+#candidateCoverLeft {left: 0px; width: 30px;}
+#candidateCoverRight {left: 365px; width: 60px;}
+
+#demTally, #gopTally {
+	table-layout: fixed; position: fixed;
+	height: 475px; top: 448px; width: 160px;
+	clip-path: inset(100% 0% 0% 0%);
+	transition: 1s, filter 0s;
+	filter: brightness(60%);
+}
+
+#tallyCoverBox {
+	table-layout: fixed; position: fixed;
+	left: 30px; top: 923px;
+	width: 335px; height: 20px;
+	background-color: #2e384b;
+	opacity: 1;
+}
+
+#demTally {background-color: var(--blueProjectionColor); left: 30px;}
+#gopTally {background-color: var(--redProjectionColor); left: 205px;}
+
+#demBar, #gopBar {
+	position: fixed; table-layout: fixed;
+	text-align: center;
+	font-family: FlamaMedium;
+	top: 843px; width: 160px;
+	height: 64px; line-height: 75px;
+	font-size: 80px; color: #fff;
+	transform: scaleX(0.72);
+	transition: top 1s, margin-top 0.5s;
+	letter-spacing: -0.5px;
+}
+
+#demBar {left: 30px;}
+#gopBar {left: 205px;}
+
+#tickGif {
+	position: fixed; opacity: 0;
+  	top: 999px; width: 120px; left: 137.5px;
+	transition-duration: 0.5s, 0.3s, 0.5s;
+	transition-delay: 0.5s, 0s, 0.2s;
+	transition-property: top, opacity, left;
+}
+
+#demBar.aboveBar,#gopBar.aboveBar {margin-top: 0px;}
+#demBar.belowBar,#gopBar.belowBar {margin-top: 90px;}
+
+#demTally.isWinner ~ #demImg {clip-path: inset(0 32.5px 0 32.5px); height: 200px; left: -2.5px;}
+#demTally.isWinner ~ #gopImg {clip-path: inset(0 150px 0 150px); height: 150px; left: 215px;}
+
+#demTally.isWinner ~ #demCandidate,#gopTally.isWinner ~ #gopCandidate {width: 335px; left: 30px;}
+
+#demTally.isWinner ~ #gopCandidate {width: 0; left: 365px;}
+#gopTally.isWinner ~ #demCandidate {width: 0; left: 30px;}
+
+#gopTally.isWinner ~ #gopImg {clip-path: inset(0 32.5px 0 32.5px); height: 200px; left: -2.5px;}
+#gopTally.isWinner ~ #demImg {clip-path: inset(0 150px 0 150px); height: 150px; left: -120px;}
+
+#demTally.notWinner ~ #demBar {top: var(--blueValTopVal)}
+#gopTally.notWinner ~ #gopBar {top: var(--redValTopVal)}
+
+#demTally.isWinner ~ #demSurname {clip-path:inset(0% -97.5px 0% -97.5px); margin-left: 80px; opacity: 0;}
+#demTally.isWinner ~ #gopSurname {clip-path:inset(0% 50% 0% 50%); margin-left: 80px;}
+
+#gopTally.isWinner ~ #demSurname {clip-path:inset(0% 50% 0% 50%); margin-left: -80px;}
+#gopTally.isWinner ~ #gopSurname {clip-path:inset(0% -97.5px 0% -97.5px); margin-left: -80px; opacity: 0;}
+
+#demTally.isWinner~#demBar, #gopTally.isWinner~#gopBar {top:368px;clip-path:inset(0 0 0 0);}
+
+#demTally.isWinner~#tickGif {top: 811px; left: 50px; opacity: 1;}
+#gopTally.isWinner~#tickGif {top: 811px; left: 225px; opacity: 1;}
+
+#AK.pollsClosed~#TEXT-AK,#AL.pollsClosed~#TEXT-AL,#AR.pollsClosed~#TEXT-AR,#AZ.pollsClosed~#TEXT-AZ,#CA.pollsClosed~#TEXT-CA,#CO.pollsClosed~#TEXT-CO,#CT.pollsClosed~#TEXT-CT,#DE.pollsClosed~#TEXT-DE,#DC.pollsClosed~#TEXT-DC,#FL.pollsClosed~#TEXT-FL,#GA.pollsClosed~#TEXT-GA,#HI.pollsClosed~#TEXT-HI,#IA.pollsClosed~#TEXT-IA,#ID.pollsClosed~#TEXT-ID,#IL.pollsClosed~#TEXT-IL,#IN.pollsClosed~#TEXT-IN,#KS.pollsClosed~#TEXT-KS,#KY.pollsClosed~#TEXT-KY,#LA.pollsClosed~#TEXT-LA,#MA.pollsClosed~#TEXT-MA,#MD.pollsClosed~#TEXT-MD,#ME.pollsClosed~#TEXT-ME,#ME.pollsClosed~#TEXT-ME1,#ME.pollsClosed~#TEXT-ME2,#MI.pollsClosed~#TEXT-MI,#MN.pollsClosed~#TEXT-MN,#MO.pollsClosed~#TEXT-MO,#MS.pollsClosed~#TEXT-MS,#MT.pollsClosed~#TEXT-MT,#NC.pollsClosed~#TEXT-NC,#ND.pollsClosed~#TEXT-ND,#NE.pollsClosed~#TEXT-NE,#NE1.pollsClosed~#TEXT-NE1,#NE2.pollsClosed~#TEXT-NE2,#NE3.pollsClosed~#TEXT-NE3,#NH.pollsClosed~#TEXT-NH,#NJ.pollsClosed~#TEXT-NJ,#NM.pollsClosed~#TEXT-NM,#NV.pollsClosed~#TEXT-NV,#NY.pollsClosed~#TEXT-NY,#OH.pollsClosed~#TEXT-OH,#OK.pollsClosed~#TEXT-OK,#OR.pollsClosed~#TEXT-OR,#PA.pollsClosed~#TEXT-PA,#RI.pollsClosed~#TEXT-RI,#SC.pollsClosed~#TEXT-SC,#SD.pollsClosed~#TEXT-SD,#TN.pollsClosed~#TEXT-TN,#TX.pollsClosed~#TEXT-TX,#UT.pollsClosed~#TEXT-UT,#VA.pollsClosed~#TEXT-VA,#VT.pollsClosed~#TEXT-VT,#WA.pollsClosed~#TEXT-WA,#WI.pollsClosed~#TEXT-WI,#WV.pollsClosed~#TEXT-WV,#WY.pollsClosed~#TEXT-WY{opacity:0.2; font-family:'FlamaMedium';}
+
+#totalToWin {
+	table-layout: fixed;
+	text-align: center;
+	border-collapse: collapse;
+	position: fixed;
+  	left: 30px;
+  	top: 378px;
+	width: 335px;
+	height: 70px;
+	background-color: rgb(255,210,9);
+	clip-path: inset(0 0 0 0);
+	transition: 0.5s, clip-path 1s, background-color, font-size;
+}
+
+#totalToWinText {
+	font-family: CondMedium;
+	table-layout: fixed;
+	text-align: center;
+	border-collapse: collapse;
+	position: fixed;
+  	left: 30px;
+  	top: 375px;
+	height: 64px;
+	color: black;
+	font-size: 64px;
+	line-height: 60px;
+	opacity: 1;
+	clip-path: inset(0% 0 0 0);
+	transition: 0.5s, left,transform,font-size,color,background-color 0s;
+	text-overflow: string;
+    	white-space: nowrap;
+}
+
+#totalToWinText.anim {
+  animation-duration: 0.5s;
+  animation-name: totalToWinTextAnim;
+}
+
+#totalToWinText.animAlt {
+  animation-duration: 1s;
+  animation-name: totalToWinTextAnimAltTwo;
+}
+
+#tallyBackgroundLeft, #tallyBackgroundRight {
+	table-layout: fixed;
+	position: fixed;
+	top: 448px;
+	width: 160px;
+	height: 475px;
+	background-color: #3e4958;
+}
+
+#tallyBackgroundLeft{left:30px}
+#tallyBackgroundRight{left:205px}
+
+#demImg, #gopImg {
+	position: fixed;
+	top: 178.5px;
+	height: 150px;
+	opacity: 1;
+	transition: 0.7s;
+	clip-path: inset(0 70px 0 70px);
+}
+
+#demImg {left: -40px;}
+#gopImg {left: 135px;}
+
+
+#logoImg {
+	position: fixed;
+	left: 720px;
+  	bottom: -50px;
+	transition: 0.5s;
+	opacity: 0;
+}
+
+#controlBar {
+	table-layout: fixed; position: fixed; text-align: center;
+	color: #fff; opacity: 0;	
+	background-color: rgba(21, 24, 39, 0.5);
+  	right: 0px; top: 0px;
+	width: 80px; height: 100%;
+	border-left: 1px solid rgba(255,255,255,0.3);
+	transition: right 0.5s;
+}
+
+#bottomBar {
+	table-layout: fixed;
+	background-color: rgb(46,56,75);
+	position: fixed;
+  	bottom: 0px;
+	opacity: 0;
+  	left: 0px;
+	width: 1600px;
+	height: 64px;
+}
+
+.buttonDefault {
+	font-family: FlamaBasic, sans-serif;
+	table-layout: fixed;
+	text-align: center;	
+	position: fixed;
+  	right: 9.5px;
+	width: 75px;
+	height: 32.5px;
+	font-size: 20px;
+	line-height: 16px;
+	letter-spacing: -0.5px;
+	color: rgb(10,10,10);
+	background-color: rgb(250,250,250);
+	border: 0.5px solid rgb(250,250,250);
+	border-radius: 4px;
+	transition: right 0.5s;
+	transform-origin: right center;
+	transform: scaleX(0.8);
+
+}
+
+.buttonDefaultSlim {
+	font-family: FlamaBasic, sans-serif;
+	table-layout: fixed;
+	text-align: center;	
+	position: fixed;
+  	right: 9.5px;
+	width: 75px;
+	height: 27.5px;
+	font-size: 16px;
+	line-height: 14px;
+	letter-spacing: -1px;
+	color: rgb(10,10,10);
+	background-color: rgb(250,250,250);
+	border: 0.5px solid rgb(250,250,250);
+	border-radius: 4px;
+	transition: right 0.5s;
+	transform-origin: right center;
+	transform: scaleX(0.8);
+}
+
+.pollButton {
+	font-family: FlamaBook, sans-serif;
+	text-align: center; position: fixed;
+  	top: 995px; right: 0px;
+	width: 50px; height: 40px;
+	color: rgba(151,154,160,0.175);
+	font-size: 13px; line-height: 12px; letter-spacing: -0.5px;
+	transition: left 0.5s, right 0.5s, top 0.5s;
+}
+
+.pollButton:active {color: #fff}
+
+#buttonBlank {top: 170px;}
+#buttonSafe {top: 207.5px;}
+#button2024 {top: 245px;}
+#button2020 {top: 282.5px;}
+#buttonCNNratings {top: 320px;}
+
+#buttonMenu {top: 357.5px; transition: top 0.5s; font-family: FlamaSemibold; font-size: 32px;}
+
+#button2016 {top: 412.5px; right: -75px; transition: 0.5s, right 0s, opacity 0.3s;}
+#buttonPollsClose {top: 450px; right: -75px; transition: 0.5s, right 0s, opacity 0.3s;}
+#buttonSolidify {top: 482.5px; right: -75px; transition: 0.5s, right 0s, opacity 0.3s;}
+#buttonFill {top: 515px; right: -75px; transition: 0.5s, right 0s, opacity 0.3s;}
+#buttonHighlightStates {top: 547.5px; right: -75px; margin-right: -75px; transition: 0.5s, right 0s, opacity 0.3s;}
+#buttonElectoralCollege {top: 547.5px; right: -75px; transition: 0.5s, right 0s, opacity 0.3s;}
+#buttonShowHideColors {top: 580px; right: -75px; transition: 0.5s, right 0s, opacity 0.3s;}
+#buttonShowHideStateLabel {top: 612.5px; height: 25px; right: -75px; transition: 0.5s, right 0s, opacity 0.3s;}
+#buttonLabelText {top: 642.5px; height: 22.5px; right: -75px; font-size: 16px; transition: 0.5s, right 0s, opacity 0.3s;}
+#buttonPaths {top: 670px; right: -75px; font-size: 16px; transition: 0.5s, opacity 0.3s;}
+
+
+#buttonMenu.isHidden {top: 380px;}
+
+#buttonPaths.isHidden,#button2016.isHidden,#buttonPollsClose.isHidden,#buttonSolidify.isHidden,#buttonFill.isHidden,#buttonHighlightStates.isHidden,#buttonElectoralCollege.isHidden,#buttonShowHideColors.isHidden,#buttonShowHideStateLabel.isHidden,#buttonStateLabelVote.isHidden,#buttonLabelText.isHidden{top: 380px; opacity: 0; pointer-events: none; user-select: none; -moz-user-select: none; -khtml-user-select: none; -webkit-user-select: none; -o-user-select: none;}
+
+#buttonMenu:not(.isHidden)~#buttonSelectedMagic{top: 420px;}
+#buttonMenu:not(.isHidden)~#buttonSelectedRep{top: 460px;}
+#buttonMenu:not(.isHidden)~#buttonSelectedDem{top: 500px;}
+#buttonMenu:not(.isHidden)~#buttonSelectedToss{top: 540px;}
+
+#buttonMenu:not(.isHidden)~#buttonAreaSelectedMagic{top: 410px;}
+#buttonMenu:not(.isHidden)~#buttonAreaSelectedRep{top: 450px;}
+#buttonMenu:not(.isHidden)~#buttonAreaSelectedDem{top: 490px;}
+#buttonMenu:not(.isHidden)~#buttonAreaSelectedToss{top: 530px;}
+#buttonMenu:not(.isHidden)~#buttonAreaRemoveSelection{top: 575px; height: 350px;}
+
+.partyButton {
+	position: fixed; table-layout: fixed;
+	text-align: center; letter-spacing: -0.5px;
+	width: 40px; height: 30px; right: 20px;
+	opacity: 0.5;
+	font-size: 20px; line-height: 25px;
+	font-family: FlamaSemibold; color: #fff;
+	transition: 0.5s, font-size: 0s;
+}
+
+#buttonSelectedMagic {
+	color: transparent; text-shadow: 0 0 0 #fff;
+  	top: 715px; transition: top 0.5s;
+}
+
+#buttonSelectedRep {top: 755px; background-color: var(--redProjectionColor); transition: top 0.5s;}
+#buttonSelectedDem {top: 795px; background-color: var(--blueProjectionColor); transition: top 0.5s;}
+#buttonSelectedToss {top: 835px; background-color: rgb(247,187,5); transition: top 0.5s;}
+
+#buttonAreaSelectedDem,#buttonAreaSelectedMagic,#buttonAreaSelectedRep,#buttonAreaSelectedToss {
+	position: fixed; table-layout: fixed;
+	width: 80px; height: 40px; right: 0px;
+	opacity: 0; color: #000;
+	transform-origin: center;
+	transform: scaleX(1);
+}
+
+#buttonAreaSelectedMagic{top:705px}
+#buttonAreaSelectedRep{top:745px}
+#buttonAreaSelectedDem{top:785px}
+#buttonAreaSelectedToss{top:825px}
+
+#buttonAreaRemoveSelection {
+	position: fixed; table-layout: fixed;
+	width: 90px; height: 70px;
+	top: 875px; right: 0; opacity: 0;
+	transition: top 0.5s, height 0.5s;
+}
+
+#pollsAtSeven {right: 100px;}
+#pollsAtSevenThirty {right: 160px;}
+#pollsAtEight {right: 220px;}
+#pollsAtEightThirty {right: 280px;}
+#pollsAtNine {right: 340px;}
+#pollsAtTen {right: 400px;}
+#pollsAtEleven {right: 460px;}
+#pollsAtTwelve {right: 520px;}
+#pollsAtOne {right: 580px;}
+
+#newHeadingLogo {
+	height: 11.5%;
+	left: 29%;;
+	width: 42%;
+	top: 2.75%;
+	position: fixed;
+	opacity: 1;
+	transition: 0.7s;
+}
+
+#loadOverlay{display: none;}
+
+@keyframes totalToWinTextAnimAlt {
+0% {transform: scale(1);}
+40% {transform: scale(0.7,0);}
+60% {transform: scale(0.7,0);}
+100% {transform: scale(1);}
+}
+
+@keyframes totalToWinTextAnimAltTwo {
+0% {transform: scale(1);}
+40% {transform: scale(1.4);}
+50% {transform: scale(1.4);}
+66% {transform: scale(0,0.75);}
+100% {transform: scale(1);}
+}
+
+@keyframes totalToWinTextAnim {
+0% {opacity: 1; clip-path: inset(25% 0 0 0); top: 375px; opacity: 1;}
+49.9% {opacity: 1; clip-path: inset(25% 0 75% 0); top: 428px; opacity: 0;}
+50.0% {opacity: 1; clip-path: inset(75% 0 0 0); top: 330px; opacity: 0;}
+50.1% {opacity: 1; clip-path: inset(75% 0 0 0); top: 330px; opacity: 1;}
+99.9% {opacity: 1; clip-path: inset(0% 0 0 0); top: 375px;}
+100% {opacity: 1; clip-path: inset(25% 0 0 0); top: 375px;}
+}
+
+a1{font-family: SemiBold; letter-spacing: -1px; font-size: 54px;}
+a18{font-family:SemiBold; letter-spacing: -1px; font-size: 108px; text-align: center; line-height: 100%;}
+a2{font-family: SemiBold; letter-spacing: -1px; font-size: 54px;}
+a6{font-family:CondMedium; letter-spacing: -1px; font-size: 42px;}
+
+.t0 {
+	font-family:'FlamaSemibold'; fill: transparent;
+	text-anchor: middle; text-align: center;
+	pointer-events: none; user-select: none;
+	-moz-user-select: none; -khtml-user-select: none;
+        -webkit-user-select: none; -o-user-select: none;
+}
+
+.t1 {font-size: 22px; letter-spacing: 0px;}
+.t2 {font-size: 16px; letter-spacing: 0.5px; fill: #fff;}
+.t3 {font-size: 16px; letter-spacing: -0.5px; fill: #fff;}
+
+.st1{font-family:'FlamaSemibold'; font-size:20px; text-align: center; fill: #fff;}
+.st2{font-family:'FlamaSemibold'; font-size:25px;}
+.st3{text-anchor:middle;}
+.st4{font-family:'SemiMedium'; font-size:13px; fill: #fff;}
+.st5{font-family:'FlamaSemibold'; font-size:20px; text-align: center;}
+.st6{fill: transparent;}
