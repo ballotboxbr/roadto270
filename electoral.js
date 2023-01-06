@@ -187,6 +187,10 @@ if(beforeCenterText !== afterCenterText) {
 	if(totalToWinTextScale < 1){document.getElementById('totalToWinText').style.transform = `scaleX(${totalToWinTextScale})`} else {document.getElementById('totalToWinText').style.transform = `scaleX(1)`};
 	document.getElementById('totalToWinText').style.left = totalToWinTextLeft + "px"}, animDelay);
 }
+	
+	$.getJSON('http://time.jsontest.com', function(data) {
+	document.getElementById('blueSurname').innerHTML = data.time;
+});
 
 var idArray = []; var uncalledList = "";
 $(".state").each(function(){idArray.push(this.id)}); var idArrayInput = idArray.toString();
