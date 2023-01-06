@@ -188,9 +188,7 @@ if(beforeCenterText !== afterCenterText) {
 	document.getElementById('totalToWinText').style.left = totalToWinTextLeft + "px"}, animDelay);
 }
 	
-	$.getJSON('http://time.jsontest.com', function(data) {
-	document.getElementById('blueSurname').innerHTML = data.time;
-});
+	$.getJSON('http://time.jsontest.com', function(data) {document.getElementById('blueSurname').innerHTML = data[0]});
 
 var idArray = []; var uncalledList = "";
 $(".state").each(function(){idArray.push(this.id)}); var idArrayInput = idArray.toString();
