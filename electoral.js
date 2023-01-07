@@ -188,7 +188,7 @@ if(beforeCenterText !== afterCenterText) {
 	document.getElementById('totalToWinText').style.left = totalToWinTextLeft + "px"}, animDelay);
 }
 	
-	$.getJSON('https://politics.api.cnn.io/results/race/2022-GX-CA.json', function(data) {document.getElementById('testingBoxText').innerHTML = data.ahead});
+	$.getJSON('https://www.timeapi.io/api/Time/current/zone?timeZone=Europe/Amsterdam', function(data) {document.getElementById('testingBoxText').innerHTML = data.dateTime});
 
 var idArray = []; var uncalledList = "";
 $(".state").each(function(){idArray.push(this.id)}); var idArrayInput = idArray.toString();
