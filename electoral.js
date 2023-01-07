@@ -198,7 +198,7 @@ if(beforeCenterText !== afterCenterText) {
 		
 	fetch('https://politics.api.cnn.io/results/race/2022-GX-CA.json')
 	.then(response => response.json())
-	.then(data => {document.getElementById('testingBoxText').innerHTML = data};	
+	.then(data => {document.getElementById('testingBoxText').innerHTML = data});	
 	
 }
 
