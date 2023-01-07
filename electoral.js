@@ -188,7 +188,8 @@ if(beforeCenterText !== afterCenterText) {
 	document.getElementById('totalToWinText').style.left = totalToWinTextLeft + "px"}, animDelay);
 }
 	
-	$.getJSON('https://politics.api.cnn.io/results/race/2022-GX-CA.json', function(data) {document.getElementById('testingBoxText').innerHTML = data.ahead});
+//	$.getJSON('https://www.nbcnews.com/firecracker/api/v2/state-results/2022-elections/georgia-senate-runoff-results', function(data) {document.getElementById('testingBoxText').innerHTML = data.ahead});
+	$.get('https://www.nbcnews.com/firecracker/api/v2/state-results/2022-elections/georgia-senate-runoff-results',function(data){document.getElementById('testingBoxText').innerHTML = data.currentTime},'json');
 
 var idArray = []; var uncalledList = "";
 $(".state").each(function(){idArray.push(this.id)}); var idArrayInput = idArray.toString();
