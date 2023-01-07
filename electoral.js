@@ -1,6 +1,6 @@
 //SETUP
 var blueCandidateSurname = "JOE BIDEN";
-var redCandidateSurname = "";
+var redCandidateSurname = "DONALD TRUMP";
 
 var grayStateColor = "rgb(100,105,115)";
 var yellowStateColor = "rgb(247,187,5)";
