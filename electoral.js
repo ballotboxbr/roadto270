@@ -1,6 +1,6 @@
 //SETUP
-var blueCandidateSurname = "JOE";
-var redCandidateSurname = "DONALD";
+var blueCandidateSurname = "BIDEN";
+var redCandidateSurname = "TRUMP";
 
 var grayStateColor = "rgb(100,105,115)";
 var yellowStateColor = "rgb(247,187,5)";
@@ -193,8 +193,8 @@ if(beforeCenterText !== afterCenterText) {
 // if(0 < idArray.length && idArray.length <= 9) {document.getElementById('testingBoxText').innerHTML = "GOP: " + calculatePaths(redEnd, idArrayInput) + "<br>DEM: " + calculatePaths(blueEnd, idArrayInput) + "<br>TIE: " + calculatePathsTie(redEnd, idArrayInput)} else {document.getElementById('testingBoxText').innerHTML = "";}
 // if(0 < idArray.length && idArray.length <= 9) {document.getElementById('buttonPaths').style.right = "9.5px";} else {document.getElementById('buttonPaths').style.right = "-75px";}
 
-	$.getJSON('https://www.nbcnews.com/firecracker/api/v2/state-results/2022-elections/alaska-governor-results', function(data){
-	document.getElementById('testingBoxText').innerHTML = data.currentTime;
+	$.getJSON('https://politics.api.cnn.io/results/race/2022-GX-CA.json', function(data){
+	document.getElementById('testingBoxText').innerHTML = data;
   });
 	
 }
