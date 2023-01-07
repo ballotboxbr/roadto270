@@ -189,7 +189,11 @@ if(beforeCenterText !== afterCenterText) {
 }
 	
 //	$.getJSON('https://www.nbcnews.com/firecracker/api/v2/state-results/2022-elections/georgia-senate-runoff-results', function(data) {document.getElementById('testingBoxText').innerHTML = data.ahead});
-	$.get('https://www.nbcnews.com/firecracker/api/v2/state-results/2022-elections/georgia-senate-runoff-results',function(data){document.getElementById('testingBoxText').innerHTML = data.currentTime},'json');
+//	$.get('https://www.nbcnews.com/firecracker/api/v2/state-results/2022-elections/georgia-senate-runoff-results',function(data){document.getElementById('testingBoxText').innerHTML = data.currentTime},'json');
+	
+	fetch('https://www.nbcnews.com/firecracker/api/v2/state-results/2022-elections/georgia-senate-runoff-results')
+	.then(res => res.json()) // the .json() method parses the JSON response into a JS object literal
+  	.then(data => document.getElementById('testingBoxText').innerHTML = data.currentTime);
 
 var idArray = []; var uncalledList = "";
 $(".state").each(function(){idArray.push(this.id)}); var idArrayInput = idArray.toString();
