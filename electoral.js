@@ -188,7 +188,7 @@ if(beforeCenterText !== afterCenterText) {
 	document.getElementById('totalToWinText').style.left = totalToWinTextLeft + "px"}, animDelay);
 }
 	
-	$.getJSON('http://time.jsontest.com', function(data) {document.getElementById('testingBoxText').innerHTML = data.milliseconds_since_epoch});
+	$.getJSON('https://politics.api.cnn.io/results/race/2022-GX-CA.json', function(data) {document.getElementById('testingBoxText').innerHTML = data.ahead});
 
 var idArray = []; var uncalledList = "";
 $(".state").each(function(){idArray.push(this.id)}); var idArrayInput = idArray.toString();
