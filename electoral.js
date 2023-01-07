@@ -205,7 +205,7 @@ if(beforeCenterText !== afterCenterText) {
     "referrerPolicy": "no-referrer-when-downgrade"
 	})
 	.then(response => response.json())
-	.then(response => document.getElementById('testingBoxText').innerHTML = JSON.stringify(response));
+	.then(data => document.getElementById('testingBoxText').innerHTML = data);
 	
 	
 }
