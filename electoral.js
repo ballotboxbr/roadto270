@@ -202,8 +202,8 @@ if(beforeCenterText !== afterCenterText) {
   return data; // returns a promise, which resolves to this data value
 }
 
-getJSON("https://politics.api.cnn.io/results/race/2022-GX-CA.json").then(data => {
-  document.getElementById('testingBoxText').innerHTML = data.ahead;
+getJSON("https://www.nbcnews.com/firecracker/api/v2/state-results/2022-elections/alaska-governor-results").then(data => {
+  document.getElementById('testingBoxText').innerHTML = data.currentTime;
 }).catch(error => {
  	document.getElementById('testingBoxText').innerHTML = error;
 });
