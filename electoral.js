@@ -196,17 +196,10 @@ if(beforeCenterText !== afterCenterText) {
 //	$.get("https://www.abc.net.au/news-web/api/loader/channelrefetch?name=ElectionOverallResults&props=%7B%22meta%22%3A%7B%22year%22%3A%222022%22%2C%22state%22%3A%22vic%22%2C%22maxSwing%22%3A10%2C%22totalSeats%22%3A88%2C%22toWin%22%3A45%2C%22useV3%22%3Atrue%2C%22afterNight%22%3Afalse%2C%22afterCount%22%3Afalse%7D%7D", function(data){
 //	document.getElementById('testingBoxText').innerHTML = data;
 	
-	fetch("https://www.abc.net.au/news-web/api/loader/channelrefetch?name=ElectionOverallResults&props=%7B%22meta%22%3A%7B%22year%22%3A%222022%22%2C%22state%22%3A%22vic%22%2C%22maxSwing%22%3A10%2C%22totalSeats%22%3A88%2C%22toWin%22%3A45%2C%22useV3%22%3Atrue%2C%22accumulateCandidates%22%3Afalse%2C%22maxParties%22%3A4%2C%22pollingDelay%22%3A30000%2C%22afterNight%22%3Atrue%2C%22remoteContentPath%22%3A%22https%3A%2F%2Fwww.abc.net.au%2Fdat%2Fnews%2Felections%2Fvic%2F2022%22%2C%22resultsDir%22%3A%22results%22%2C%22picturePath%22%3A%22https%3A%2F%2Fwww.abc.net.au%2Fdat%2Fnews%2Felections%2Fvic%2F2022%2Fguide%2Fphotos%2F%22%2C%22showShare%22%3Atrue%7D%7D", {
-    "credentials": "include",
-    "method": "GET",
-    "mode": "cors",
-    "redirect": "follow",
-    "referrer": "https://www.abc.net.au/news/elections/vic/2022/results?filter=all&sort=az",
-    "referrerPolicy": "no-referrer-when-downgrade"
-	})
+		
+	fetch('https://politics.api.cnn.io/results/race/2022-GX-CA.json')
 	.then(response => response.json())
-	.then(data => document.getElementById('testingBoxText').innerHTML = data);
-	
+	.then(data => {document.getElementById('testingBoxText').innerHTML = data};	
 	
 }
 
