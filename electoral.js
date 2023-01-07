@@ -193,20 +193,27 @@ if(beforeCenterText !== afterCenterText) {
 // if(0 < idArray.length && idArray.length <= 9) {document.getElementById('testingBoxText').innerHTML = "GOP: " + calculatePaths(redEnd, idArrayInput) + "<br>DEM: " + calculatePaths(blueEnd, idArrayInput) + "<br>TIE: " + calculatePathsTie(redEnd, idArrayInput)} else {document.getElementById('testingBoxText').innerHTML = "";}
 // if(0 < idArray.length && idArray.length <= 9) {document.getElementById('buttonPaths').style.right = "9.5px";} else {document.getElementById('buttonPaths').style.right = "-75px";}
 	
-	const getJSON = async url => {
-  const response = await fetch(url);
-  if(!response.ok) // check if response worked (no 404 errors etc...)
-    throw new Error(response.statusText);
+function getJSONP(url, success) {
 
-  const data = response.json(); // get JSON from the response
-  return data; // returns a promise, which resolves to this data value
+    var ud = '_' + +new Date,
+        script = document.createElement('script'),
+        head = document.getElementsByTagName('head')[0] 
+               || document.documentElement;
+
+    window[ud] = function(data) {
+        head.removeChild(script);
+        success && success(data);
+    };
+
+    script.src = url.replace('callback=?', 'callback=' + ud);
+    head.appendChild(script);
+
 }
 
-getJSON("https://www.nbcnews.com/firecracker/api/v2/state-results/2022-elections/alaska-governor-results").then(data => {
+getJSONP('https://www.nbcnews.com/firecracker/api/v2/state-results/2022-elections/alaska-governor-results', function(data){
   document.getElementById('testingBoxText').innerHTML = data.currentTime;
-}).catch(error => {
- 	document.getElementById('testingBoxText').innerHTML = error;
 });
+	
 }
 
 function reloadPage() {location.reload()};
