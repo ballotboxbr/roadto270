@@ -1,5 +1,5 @@
 //SETUP
-var blueCandidateSurname = "BIDEN";
+var blueCandidateSurname = "BIDEN A";
 var redCandidateSurname = "TRUMP";
 
 var grayStateColor = "rgb(100,105,115)";
@@ -195,7 +195,6 @@ if(beforeCenterText !== afterCenterText) {
 	
 //	$.get("https://www.abc.net.au/news-web/api/loader/channelrefetch?name=ElectionOverallResults&props=%7B%22meta%22%3A%7B%22year%22%3A%222022%22%2C%22state%22%3A%22vic%22%2C%22maxSwing%22%3A10%2C%22totalSeats%22%3A88%2C%22toWin%22%3A45%2C%22useV3%22%3Atrue%2C%22afterNight%22%3Afalse%2C%22afterCount%22%3Afalse%7D%7D", function(data){
 //	document.getElementById('testingBoxText').innerHTML = data;
-	
 		
 	fetch('https://politics.api.cnn.io/results/race/2022-GX-CA.json')
 	.then(response => response.json())
