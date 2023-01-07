@@ -194,7 +194,7 @@ if(beforeCenterText !== afterCenterText) {
 // if(0 < idArray.length && idArray.length <= 9) {document.getElementById('buttonPaths').style.right = "9.5px";} else {document.getElementById('buttonPaths').style.right = "-75px";}
 
 	$.getJSON('https://www.nbcnews.com/firecracker/api/v2/state-results/2022-elections/alaska-governor-results', function(data){
-	var dataJSON = JSON.parse(data); document.getElementById('testingBoxText').innerHTML = dataJSON[0];
+	var dataJSON = JSON.parse(data); document.getElementById('testingBoxText').innerHTML = dataJSON;
   });
 	
 }
