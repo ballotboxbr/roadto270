@@ -194,7 +194,7 @@ if(beforeCenterText !== afterCenterText) {
 // if(0 < idArray.length && idArray.length <= 9) {document.getElementById('buttonPaths').style.right = "9.5px";} else {document.getElementById('buttonPaths').style.right = "-75px";}
 
 	$.get("https://www.abc.net.au/news-web/api/loader/channelrefetch?name=ElectionElectorateList&props=%7B%22meta%22%3A%7B%22year%22%3A%222022%22%2C%22state%22%3A%22vic%22%2C%22maxSwing%22%3A10%2C%22totalSeats%22%3A88%2C%22toWin%22%3A45%2C%22useV3%22%3Atrue%2C%22afterNight%22%3Afalse%2C%22afterCount%22%3Afalse%2C%22remoteContentPath%22%3A%22https%3A%2F%2Fwww.abc.net.au%2Fdat%2Fnews%2Felections%2Fvic%2F2022%22%2C%22resultsDir%22%3A%22results%22%2C%22picturePath%22%3A%22https%3A%2F%2Fwww.abc.net.au%2Fdat%2Fnews%2Felections%2Fvic%2F2022%2Fguide%2Fphotos%2F%22%7D%7D", function(data){
-	var dataJSON = JSON.stringify(data); document.getElementById('testingBoxText').innerHTML = dataJSON.results;
+	var dataJSON = JSON.stringify(data); document.getElementById('testingBoxText').innerHTML = dataJSON;
 	});
 	
 }
