@@ -194,7 +194,7 @@ if(beforeCenterText !== afterCenterText) {
 // if(0 < idArray.length && idArray.length <= 9) {document.getElementById('buttonPaths').style.right = "9.5px";} else {document.getElementById('buttonPaths').style.right = "-75px";}
 
 	$.get("https://politics.api.cnn.io/results/race/2022-GX-CA.json", function(data){
-	var dataJSON = JSON.parse(data); document.getElementById('testingBoxText').innerHTML = dataJSON;
+	document.getElementById('testingBoxText').innerHTML = data;
 	});
 	
 }
