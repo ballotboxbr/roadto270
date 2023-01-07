@@ -30,7 +30,7 @@ document.getElementById('blueSurname').innerHTML = blueCandidateSurname;
 document.getElementById('redSurname').innerHTML = redCandidateSurname;
 
 if(blueCandidateSurname){} else {document.getElementById('blueSurname').innerHTML = "DEM"};
-if(redCandidateSurname){} else {document.getElementById('redSurname').innerHTML = "REP"};
+if(redCandidateSurname){} else {document.getElementById('redSurname').innerHTML = "GOP"};
 
 if(blueWinText){} else {var blueWinText = blueCandidateSurname};
 if(redWinText){} else {var redWinText = redCandidateSurname};
