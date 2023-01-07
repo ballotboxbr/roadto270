@@ -187,30 +187,6 @@ if(beforeCenterText !== afterCenterText) {
 	if(totalToWinTextScale < 1){document.getElementById('totalToWinText').style.transform = `scaleX(${totalToWinTextScale})`} else {document.getElementById('totalToWinText').style.transform = `scaleX(1)`};
 	document.getElementById('totalToWinText').style.left = totalToWinTextLeft + "px"}, animDelay);
 }
-	
-//	$.getJSON('https://www.nbcnews.com/firecracker/api/v2/state-results/2022-elections/georgia-senate-runoff-results', function(data) {document.getElementById('testingBoxText').innerHTML = data.currentTime});
-//	$.get('https://www.nbcnews.com/firecracker/api/v2/state-results/2022-elections/georgia-senate-runoff-results',function(data){document.getElementById('testingBoxText').innerHTML = data.currentTime},'json');
-	
-	var getJSON = function(url) {
-  return new Promise(function(resolve, reject) {
-    var xhr = new XMLHttpRequest();
-    xhr.open('get', url, true);
-    xhr.responseType = 'json';
-    xhr.onload = function() {
-      var status = xhr.status;
-      if (status == 200) {
-        resolve(xhr.response);
-      } else {
-        reject(status);
-      }
-    };
-    xhr.send();
-  });
-};
-
-getJSON('https://www.nbcnews.com/firecracker/api/v2/state-results/2022-elections/georgia-senate-runoff-results').then(function(data) {
-	document.getElementById('testingBoxText').innerHTML = data.currentTime
-});
 
 var idArray = []; var uncalledList = "";
 $(".state").each(function(){idArray.push(this.id)}); var idArrayInput = idArray.toString();
