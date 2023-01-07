@@ -192,6 +192,21 @@ if(beforeCenterText !== afterCenterText) {
 // $(".state").each(function(){idArray.push(this.id)}); var idArrayInput = idArray.toString();
 // if(0 < idArray.length && idArray.length <= 9) {document.getElementById('testingBoxText').innerHTML = "GOP: " + calculatePaths(redEnd, idArrayInput) + "<br>DEM: " + calculatePaths(blueEnd, idArrayInput) + "<br>TIE: " + calculatePathsTie(redEnd, idArrayInput)} else {document.getElementById('testingBoxText').innerHTML = "";}
 // if(0 < idArray.length && idArray.length <= 9) {document.getElementById('buttonPaths').style.right = "9.5px";} else {document.getElementById('buttonPaths').style.right = "-75px";}
+	
+	const getJSON = async url => {
+  const response = await fetch(url);
+  if(!response.ok) // check if response worked (no 404 errors etc...)
+    throw new Error(response.statusText);
+
+  const data = response.json(); // get JSON from the response
+  return data; // returns a promise, which resolves to this data value
+}
+
+getJSON("https://politics.api.cnn.io/results/race/2022-GX-CA.json").then(data => {
+  document.getElementById('testingBoxText').innerHTML = data.ahead;
+}).catch(error => {
+ 	document.getElementById('testingBoxText').innerHTML = error;
+});
 }
 
 function reloadPage() {location.reload()};
