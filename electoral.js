@@ -193,6 +193,12 @@ if(beforeCenterText !== afterCenterText) {
 // if(0 < idArray.length && idArray.length <= 9) {document.getElementById('testingBoxText').innerHTML = "GOP: " + calculatePaths(redEnd, idArrayInput) + "<br>DEM: " + calculatePaths(blueEnd, idArrayInput) + "<br>TIE: " + calculatePathsTie(redEnd, idArrayInput)} else {document.getElementById('testingBoxText').innerHTML = "";}
 // if(0 < idArray.length && idArray.length <= 9) {document.getElementById('buttonPaths').style.right = "9.5px";} else {document.getElementById('buttonPaths').style.right = "-75px";}
 	
+	
+	
+$.getJSON('https://script.google.com/macros/s/AKfycbyvR-IOXxyVBoK18mxWjSA34snvPmx0nr7lNvgvSGwY/exec?url=%22https://politics.api.cnn.io/results/race/2022-GX-CA.json%22', function(data) {
+   document.getElementById('testingBoxText').innerHTML = data.ahead;
+});
+	
 }
 
 function reloadPage() {location.reload()};
