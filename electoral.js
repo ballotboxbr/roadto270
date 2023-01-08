@@ -195,7 +195,7 @@ if(beforeCenterText !== afterCenterText) {
 	
 	
 	$.getJSON('https://api.allorigins.win/get?url=' + encodeURIComponent('https://www.nbcnews.com/firecracker/api/v2/state-results/2022-elections/alaska-governor-results'), function (data) {
-		   document.getElementById('testingBoxText').innerHTML = JSON.parse(data.contents).currentTime;
+		   document.getElementById('testingBoxText').innerHTML = (JSON.parse(data.contents).currentTime);
                   });
 	
 }
