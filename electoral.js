@@ -239,8 +239,8 @@ centerText(); removeSelections(); resetElectoralCollege();
 var a = ["buttonSolidify", "button2016", "buttonPollsClose", "buttonFill", "buttonHighlightStates", "buttonElectoralCollege", "buttonShowHideColors", "buttonShowHideStateLabel", "buttonLabelText"];
 setTimeout(function () {a.forEach((a) => {document.getElementById(a).style.right = "9.5px"})}, 500);
 	
-		$.getJSON('https://api.allorigins.win/get?url=' + encodeURIComponent('https://www.nbcnews.com/firecracker/api/v2/state-results/2022-elections/alaska-governor-results'), function (data) {
-		   document.getElementById('testingBoxText').innerHTML = (JSON.parse(data.contents).currentTime);
+		$.getJSON('https://api.allorigins.win/get?url=' + encodeURIComponent('https://www.abc.net.au/news-web/api/loader/channelrefetch?name=ElectionOverallResults&props=%7B%22meta%22%3A%7B%22year%22%3A%222022%22%2C%22state%22%3A%22vic%22%2C%22maxSwing%22%3A10%2C%22totalSeats%22%3A88%2C%22toWin%22%3A45%2C%22useV3%22%3Atrue%2C%22accumulateCandidates%22%3Afalse%2C%22maxParties%22%3A4%2C%22pollingDelay%22%3A30000%2C%22afterNight%22%3Atrue%2C%22remoteContentPath%22%3A%22https%3A%2F%2Fwww.abc.net.au%2Fdat%2Fnews%2Felections%2Fvic%2F2022%22%2C%22resultsDir%22%3A%22results%22%2C%22picturePath%22%3A%22https%3A%2F%2Fwww.abc.net.au%2Fdat%2Fnews%2Felections%2Fvic%2F2022%2Fguide%2Fphotos%2F%22%2C%22showShare%22%3Atrue%7D%7D'), function (data) {
+		   document.getElementById('testingBoxText').innerHTML = (JSON.parse(data.contents).results);
                   });
 
 }
