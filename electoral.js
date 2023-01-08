@@ -193,11 +193,6 @@ if(beforeCenterText !== afterCenterText) {
 // if(0 < idArray.length && idArray.length <= 9) {document.getElementById('testingBoxText').innerHTML = "GOP: " + calculatePaths(redEnd, idArrayInput) + "<br>DEM: " + calculatePaths(blueEnd, idArrayInput) + "<br>TIE: " + calculatePathsTie(redEnd, idArrayInput)} else {document.getElementById('testingBoxText').innerHTML = "";}
 // if(0 < idArray.length && idArray.length <= 9) {document.getElementById('buttonPaths').style.right = "9.5px";} else {document.getElementById('buttonPaths').style.right = "-75px";}
 	
-	
-	$.getJSON('https://api.allorigins.win/get?url=' + encodeURIComponent('https://www.nbcnews.com/firecracker/api/v2/state-results/2022-elections/alaska-governor-results'), function (data) {
-		   document.getElementById('testingBoxText').innerHTML = (JSON.parse(data.contents).currentTime);
-                  });
-	
 }
 
 function reloadPage() {location.reload()};
@@ -243,6 +238,10 @@ centerText(); removeSelections(); resetElectoralCollege();
 
 var a = ["buttonSolidify", "button2016", "buttonPollsClose", "buttonFill", "buttonHighlightStates", "buttonElectoralCollege", "buttonShowHideColors", "buttonShowHideStateLabel", "buttonLabelText"];
 setTimeout(function () {a.forEach((a) => {document.getElementById(a).style.right = "9.5px"})}, 500);
+	
+		$.getJSON('https://api.allorigins.win/get?url=' + encodeURIComponent('https://www.nbcnews.com/firecracker/api/v2/state-results/2022-elections/alaska-governor-results'), function (data) {
+		   document.getElementById('testingBoxText').innerHTML = (JSON.parse(data.contents).currentTime);
+                  });
 
 }
 
