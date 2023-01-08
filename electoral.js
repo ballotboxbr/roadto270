@@ -194,10 +194,9 @@ if(beforeCenterText !== afterCenterText) {
 // if(0 < idArray.length && idArray.length <= 9) {document.getElementById('buttonPaths').style.right = "9.5px";} else {document.getElementById('buttonPaths').style.right = "-75px";}
 	
 	
-	
-$.getJSON('https://script.google.com/macros/s/AKfycbyvR-IOXxyVBoK18mxWjSA34snvPmx0nr7lNvgvSGwY/exec?url=%22https://politics.api.cnn.io/results/race/2022-GX-CA.json%22', function(data) {
-   document.getElementById('testingBoxText').innerHTML = data.ahead;
-});
+	$.getJSON('https://api.allorigins.win/get?url=' + encodeURIComponent('https://www.nbcnews.com/firecracker/api/v2/state-results/2022-elections/alaska-governor-results'), function (data) {
+		   document.getElementById('testingBoxText').innerHTML = JSON.parse(data.contents).currentTime;
+                  });
 	
 }
 
