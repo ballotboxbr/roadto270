@@ -1,5 +1,5 @@
 //SETUP
-var blueCandidateSurname = "BIDEN";
+var blueCandidateSurname = "BIDEN"
 var redCandidateSurname = "";
 
 var grayStateColor = "rgb(100,105,115)";
@@ -105,7 +105,6 @@ function stateProjected() {
 
 window.addEventListener("contextmenu", e => e.preventDefault());
 
-
 function centerText() {
 
 	var electoralCollegeSelected = data.getAttribute("data-electoral-college");
@@ -127,40 +126,32 @@ function centerText() {
         }
     }
 
-	blueHeight = blueCount >= 270 ? 475 : blueCount*(475/270);
-	redHeight = redCount >= 270 ? 475 : redCount*(475/270);
+	if(blueCount >= 270){var blueProgress = 1} else {var blueProgress = (blueCount/270)}
+	if(blueCount > 67){var blueTop = 99 - (blueProgress*51)} else {var blueTop = 88 - (blueProgress*51)}
 
-	redTop = 843 - redHeight; blueTop = 843 - blueHeight;
-	redNumber = redTop; blueNumber = blueTop;
+	if(redCount >= 270){var redProgress = 1} else {var redProgress = (redCount/270)}
+	if(redCount > 67){var redTop = 99 - (redProgress*51)} else {var redTop = 88 - (redProgress*51)}
 
-	if(blueCount <= 67) {var demBarClass = "aboveBar"} else {var demBarClass = "belowBar"};
-	if(redCount <= 67) {var gopBarClass = "aboveBar"} else {var gopBarClass = "belowBar"}
+	document.getElementById("demTally").style.clipPath = "inset(" + (1-blueProgress)*100 + "% 0% 0% 0%)";
+	document.getElementById("gopTally").style.clipPath = "inset(" + (1-redProgress)*100 + "% 0% 0% 0%)";
 
-	document.getElementById("demBar").setAttribute("class", demBarClass);
-	document.getElementById("gopBar").setAttribute("class", gopBarClass);
+	document.getElementById('demBar').style.top = blueTop + "vh";
+	document.getElementById('gopBar').style.top = redTop + "vh";
 
-	if(blueCount > 270) {var blueClipPathCount = 270} else {var blueClipPathCount = blueCount}
-	if(redCount > 270) {var redClipPathCount = 270} else {var redClipPathCount = redCount}
-
-	document.getElementById("demTally").style.clipPath = "inset(" + (1-(blueClipPathCount/270))*100 + "% 0% 0% 0%)";
-	document.getElementById("gopTally").style.clipPath = "inset(" + (1-(redClipPathCount/270))*100 + "% 0% 0% 0%)";
-
-	document.documentElement.style.setProperty('--redTopVal', redTop + "px");
-	document.documentElement.style.setProperty('--blueTopVal', blueTop + "px");
-	document.documentElement.style.setProperty('--redValTopVal', redNumber + "px");
-	document.documentElement.style.setProperty('--blueValTopVal', blueNumber + "px");
-
-var animDelay = 250;
+	var animDelay = 250;
 
     if (blueCount == 269 && redCount == 269) {
-        var centerTextSet = "<a1>TIE</a1>"; var demClass = "notWinner"; var gopClass = "notWinner";
+        var centerTextSet = "TIE"; var demClass = "notWinner"; var gopClass = "notWinner"; var pathBoxOpacity =  1;
     } else if (blueCount >= 270) {
-        var centerTextSet = `<a2>${blueWinText} WINS</a2>`; var demClass = "isWinner"; var gopClass = "notWinner";
+        var centerTextSet = `${blueWinText} WINS`; var demClass = "isWinner"; var gopClass = "notWinner"; var pathBoxShow = 'scale(0)';
     } else if (redCount >= 270) {
-        var centerTextSet = `<a2>${redWinText} WINS</a2>`; var demClass = "notWinner"; var gopClass = "isWinner";
+        var centerTextSet = `${redWinText} WINS`; var demClass = "notWinner"; var gopClass = "isWinner"; var pathBoxShow = 'scale(0)';
     } else {
-        var centerTextSet = "<a1>270 TO WIN</a1>"; var demClass = "notWinner"; var gopClass = "notWinner";
+        var centerTextSet = "270 TO WIN"; var demClass = "notWinner"; var gopClass = "notWinner"; var pathBoxShow = 'scale(1)';
     }
+
+document.getElementById("pathsBox").style.transform = pathBoxShow;
+
 
 document.getElementById("demTally").className = demClass;
 document.getElementById("gopTally").className = gopClass;
@@ -177,67 +168,108 @@ animateValue("redTotal", redStart, redEnd, 400, 17);
 const beforeCenterText = document.getElementById('centerTextSet').innerHTML; var afterCenterText = centerTextSet;
 
 if(beforeCenterText !== afterCenterText) {
-	totalToWinText.classList.remove("anim"); totalToWinText.offsetWidth; totalToWinText.classList.add("anim");
-	setTimeout(function () {document.getElementById('centerTextSet').innerHTML = centerTextSet;
-	const totalToWinBoxWidth = document.getElementById('totalToWin').offsetWidth;
-	const totalToWinTextWidth = document.getElementById('totalToWinText').offsetWidth;
+	totalToWinText.classList.remove("anim"); totalToWinText.clientWidth; totalToWinText.classList.add("anim");
 
-	const totalToWinTextScale = totalToWinBoxWidth/(totalToWinTextWidth*1.15);
-	const totalToWinTextLeft = 197.5 - (totalToWinTextWidth/2);
-	if(totalToWinTextScale < 1){document.getElementById('totalToWinText').style.transform = `scaleX(${totalToWinTextScale})`} else {document.getElementById('totalToWinText').style.transform = `scaleX(1)`};
-	document.getElementById('totalToWinText').style.left = totalToWinTextLeft + "px"}, animDelay);
+	setTimeout(function () {
+
+	document.getElementById('centerTextSet').innerHTML = centerTextSet;
+
+	const totalToWinTextWidth = document.getElementById('totalToWinText').clientWidth;
+	const totalToWinTextHeight = document.getElementById('totalToWinText').clientHeight;
+	const windowWidth = document.documentElement.clientWidth;
+	const windowHeight = document.documentElement.clientHeight;
+	const maxWidth = windowWidth * 0.20; const maxHeight = windowHeight * 0.06;
+
+	document.getElementById('totalToWinText').style.left = "3vw";
+
+	if (totalToWinTextWidth < maxWidth) {
+	    document.getElementById('totalToWinText').style.width = "22vw"
+	    document.getElementById('totalToWinText').style.height = "8vh"
+	    document.getElementById('totalToWinText').style.transform = 'scaleX(1)';
+	} else {
+	    document.getElementById('totalToWinText').style.width = totalToWinTextWidth;
+	    var totalToWinScale = maxWidth / totalToWinTextWidth;
+		if(totalToWinScale > 1){
+			var totalToWinScale = 1;}
+	    document.getElementById('totalToWinText').style.transform = `scaleX(${totalToWinScale})`
+	}
+
+	}, animDelay);
+
 }
 
-// var idArray = []; var uncalledList = "";
-// $(".state").each(function(){idArray.push(this.id)}); var idArrayInput = idArray.toString();
-// if(0 < idArray.length && idArray.length <= 9) {document.getElementById('testingBoxText').innerHTML = "GOP: " + calculatePaths(redEnd, idArrayInput) + "<br>DEM: " + calculatePaths(blueEnd, idArrayInput) + "<br>TIE: " + calculatePathsTie(redEnd, idArrayInput)} else {document.getElementById('testingBoxText').innerHTML = "";}
-// if(0 < idArray.length && idArray.length <= 9) {document.getElementById('buttonPaths').style.right = "9.5px";} else {document.getElementById('buttonPaths').style.right = "-75px";}
-	
+var idArray = []; var uncalledList = "";
+$(".state").each(function(){idArray.push(this.id)}); var idArrayInput = idArray.toString();
+if(0 < idArray.length && idArray.length <= 9) {
+	document.getElementById('pathsBoxDem').innerHTML = document.getElementById('blueSurname').innerHTML + ": " + calculatePaths(blueEnd, idArrayInput);
+	document.getElementById('pathsBoxGop').innerHTML = document.getElementById('redSurname').innerHTML + ": " + calculatePaths(redEnd, idArrayInput);
+	document.getElementById('pathsBoxTie').innerHTML = "TIE: " + calculatePathsTie(redEnd, idArrayInput)
+} else {document.getElementById('testingBoxText').innerHTML = "";}
+
+var pollsClosedArray = [];
+$(".pollsClosed").each(function(){pollsClosedArray.push("Y")});
+
+if(0 < idArray.length && idArray.length <= 9 && pollsClosedArray.length == 0) {document.getElementById('buttonPaths').style.display = "flex";} else {document.getElementById('buttonPaths').style.display = "none"; hidePaths()}
 }
 
 function reloadPage() {location.reload()};
 
 function loadStart() {
 
-// window.setInterval(function(){const date = new Date(); if(date.getHours() === 10 && date.getMinutes() === 40 && date.getSeconds() === 30) {pollsAtNine();}}, 1000);
-
 data.setAttribute("data-selected", "magic");
 document.getElementById("nationalMap").style.opacity = "1";
 
-const candidateWidth = document.getElementById('demCandidate').clientWidth;
 const demSurnameWidth = document.getElementById('demSurname').clientWidth;
 const gopSurnameWidth = document.getElementById('gopSurname').clientWidth;
-const totalToWinBoxWidth = document.getElementById('totalToWin').clientWidth;
-const totalToWinTextWidth = document.getElementById('totalToWinText').offsetWidth;
+const totalToWinTextWidth = document.getElementById('totalToWinText').clientWidth;
 
-const demSurnameScale = candidateWidth/(demSurnameWidth*(160/140));
-const gopSurnameScale = candidateWidth/(gopSurnameWidth*(160/140));
+const windowWidth = document.documentElement.clientWidth;
+const maxSurnameWidth = windowWidth * 0.1;
+const maxTotalToWinWidth = windowWidth * 0.22;
 
-if(demSurnameScale < 1){var demSurnameLeft = 110 - (demSurnameWidth/2)} else {var demSurnameLeft = 40};
-if(gopSurnameScale < 1){var gopSurnameLeft = 285 - (gopSurnameWidth/2)} else {var gopSurnameLeft = 215};
+document.getElementById('demSurname').style.left = "2vw";
+document.getElementById('gopSurname').style.left = "14vw";
+// document.getElementById('totalToWinText').style.left = "2vw";
 
-if(demSurnameScale < 1){document.getElementById('demSurname').style.transform = `scaleX(${demSurnameScale})`};
-if(demSurnameScale >= 1){document.getElementById('demSurname').style.width = "140px"};
+if (demSurnameWidth < maxSurnameWidth) {
+    document.getElementById('demSurname').style.width = "10vw"
+} else {
+    var demSurnameScale = maxSurnameWidth / demSurnameWidth;
+    document.getElementById('demSurname').style.transform = `scaleX(${demSurnameScale})`
+}
 
-if(gopSurnameScale < 1){document.getElementById('gopSurname').style.transform = `scaleX(${gopSurnameScale})`};
-if(gopSurnameScale >= 1){document.getElementById('gopSurname').style.width = "140px"};
+if (gopSurnameWidth < maxSurnameWidth) {
+	document.getElementById('gopSurname').style.width = "10vw"
+} else {
+	var gopSurnameScale = maxSurnameWidth / gopSurnameWidth;
+	document.getElementById('gopSurname').style.transform = `scaleX(${gopSurnameScale})`
+}
 
-document.getElementById('demSurname').style.left = demSurnameLeft + "px";
-document.getElementById('gopSurname').style.left = gopSurnameLeft + "px";
+
+ if (totalToWinTextWidth < maxTotalToWinWidth) {
+    document.getElementById('totalToWinText').style.width = "22vw"
+  } else {
+ 	var totalToWinScale = maxTotalToWinWidth / totalToWinTextWidth;
+ 	document.getElementById('totalToWinText').style.transform = `scaleX(${totalToWinScale})`
+  }
 
 document.getElementById('data').setAttribute("data-electoral-college", "2010");
 document.getElementById('data').setAttribute("data-labels-visibility", "false");
 document.getElementById('data').setAttribute("data-labels", "state");
 
-var totalToWinTextScale = totalToWinBoxWidth/(totalToWinTextWidth*1.15);
-var totalToWinTextLeft = 197.5 - (totalToWinTextWidth/2);
-if(totalToWinTextScale < 1){document.getElementById('totalToWinText').style.transform = `scaleX(${totalToWinTextScale})`} else {document.getElementById('totalToWinText').style.transform = `scaleX(1)`};
-document.getElementById('totalToWinText').style.left = totalToWinTextLeft + "px";
-
 centerText(); removeSelections(); resetElectoralCollege();
 
 var a = ["buttonSolidify", "button2016", "buttonPollsClose", "buttonFill", "buttonHighlightStates", "buttonElectoralCollege", "buttonShowHideColors", "buttonShowHideStateLabel", "buttonLabelText"];
-setTimeout(function () {a.forEach((a) => {document.getElementById(a).style.right = "9.5px"})}, 500);
+setTimeout(function () {a.forEach((a) => {document.getElementById(a).style.right = "1vw"})}, 500);
+
+// pres2024();
+
+document.getElementById("nationalMap").style.transition = "0s";
+document.getElementById("nationalMap").style.transitionDelay = "0s"
+document.getElementById("demSurname").style.transition = "0.7s"
+document.getElementById("gopSurname").style.transition = "0.7s"
+
+document.getElementById('testingBoxText').innerHTML = "testing";
 
 }
 
@@ -315,15 +347,13 @@ function toggleColorGray() {
 function selectElectoralCollege () {
 	const previousSelection = data.getAttribute("data-electoral-college");
 
-	if(previousSelection === "2020") {data.setAttribute("data-electoral-college", "2010"); var newSelectionText = "2024 EV";}
-	if(previousSelection === "2010") {data.setAttribute("data-electoral-college", "2020"); var newSelectionText = "2020 EV";}
+	if(previousSelection === "2020") {data.setAttribute("data-electoral-college", "2010");}
+	if(previousSelection === "2010") {data.setAttribute("data-electoral-college", "2020");}
 	  
-	centerText(); showHideMenu(); updateElectoralText();
-	setTimeout(function () {buttonElectoralCollegeText.innerHTML = newSelectionText}, 250);
-
+	centerText(); updateElectoralText();
 }
 
-function resetElectoralCollege () {data.setAttribute("data-electoral-college", "2020"); buttonElectoralCollegeText.innerHTML = "2020 EV"; centerText (); updateElectoralText();}
+function resetElectoralCollege () {data.setAttribute("data-electoral-college", "2020"); centerText (); updateElectoralText();}
 
 function clickShowHideColors () {
 	const currentRedColor = getComputedStyle(document.documentElement).getPropertyValue('--redStateColor');
@@ -354,7 +384,7 @@ function clickShowHideStateLabels () {
 
 function showStateLabels () {
 	data.setAttribute("data-labels-visibility", "true");
-	document.querySelectorAll('.st6').forEach(el => {el.style.fill = "#fff"; el.style.transition = "fill 0.5s, opacity 0s"});
+	document.querySelectorAll('.st6').forEach(el => {el.style.fill = "#fff"; el.style.transition = "fill 0, opacity 0s"});
 
 	var electoralCollegeSelected = data.getAttribute("data-electoral-college");
 	var labelContext = data.getAttribute("data-labels");
@@ -410,16 +440,9 @@ function coverShow () {
 }
 
 function showHideMenu () {
-	var showHideMenuArray = ["button2012","button2016","buttonMenu", "buttonSolidify", "buttonPollsClose", "buttonFill", "buttonHighlightStates", "buttonElectoralCollege", "buttonShowHideColors", "buttonShowHideStateLabel", "buttonPaths","buttonLabelText"];
-
-	showHideMenuArray.forEach((item) => {document.getElementById(item).classList.toggle("isHidden")});
 }
 
 function hideMenu () {
-	var showHideMenuArray = ["button2012","button2016", "buttonSolidify", "buttonPollsClose", "buttonFill", "buttonHighlightStates", "buttonElectoralCollege", "buttonShowHideColors", "buttonShowHideStateLabel", "buttonPaths","buttonLabelText"];
-
-	document.getElementById("buttonMenu").classList.remove("isHidden");
-	showHideMenuArray.forEach((item) => {document.getElementById(item).classList.add("isHidden")});
 }
 
 function calculatePaths(evStart, statesInput) {
@@ -443,7 +466,7 @@ function calculatePaths(evStart, statesInput) {
 		if((electoralVoteCount >= 270 && evBefore < 270)){winningPaths.push(combinationOutput);}});});
 
 	var finalOutput = winningPaths.filter((element, index) => {return winningPaths.indexOf(element) === index});
-	return evStart + " " + finalOutput.length;
+	return finalOutput.length;
 }
 
 function calculatePathsTie(t, r) {
@@ -462,3 +485,6 @@ function calculatePathsTie(t, r) {
 function comb(a){var b=[],c=function(e=[],d){for(var a=0;a<d.length;a++)b.push([...e,d[a].toString()]),c([...e,d[a]],d.slice(a+1))};return c("",a),b}
 
 function showPaths() {document.getElementById("nationalMap").classList.toggle("paths");}
+function hidePaths() {document.getElementById("nationalMap").classList.remove("paths");}
+
+function resetButtonBar() {document.getElementById("buttonBar").style.scrollTop = "0px"};

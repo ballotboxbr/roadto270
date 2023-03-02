@@ -9,7 +9,7 @@ allStates.forEach((item) => {document.getElementById(item).setAttribute("class",
 demStates.forEach((item) => {document.getElementById(item).classList.replace('state','blueProj')});
 gopStates.forEach((item) => {document.getElementById(item).classList.replace('state','redProj')});
 
-setTimeout(function () {document.getElementById("button2016").style.right = "9.5px"}, 500);
+setTimeout(function () {document.getElementById("button2016").style.right = "1vw"}, 500);
 document.getElementById("button2012").style.right = "-70px";
 document.documentElement.style.setProperty('--stateColor', "rgb(100,105,115)");
 

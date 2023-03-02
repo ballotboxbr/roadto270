@@ -10,8 +10,8 @@ var allClasses = ['redState','redProj','blueState','blueProj'];
 allStates.forEach((state) => {allClasses.forEach((item) => {document.getElementById(state).classList.replace(item,'state')})});
 
 document.documentElement.style.setProperty('--stateColor', "rgb(100,105,115)");
-setTimeout(function () {document.getElementById("button2016").style.right = "9.5px"}, 500);
-setTimeout(function () {document.getElementById("buttonPollsClose").style.right = "9.5px"}, 500);
+setTimeout(function () {document.getElementById("button2016").style.right = "1vw"}, 500);
+setTimeout(function () {document.getElementById("buttonPollsClose").style.right = "1vw"}, 500);
 document.getElementById("button2012").style.right = "-70px";
 
 removeSelections()
@@ -19,7 +19,7 @@ centerText()
 }
 
 function emptyStates () {
-setTimeout(function () {document.getElementById("button2016").style.right = "9.5px"}, 500);
+setTimeout(function () {document.getElementById("button2016").style.right = "1vw"}, 500);
 document.getElementById("button2012").style.right = "-70px";
 
 allStates.forEach((item) => {document.getElementById(item).setAttribute("class", "state")});
@@ -27,7 +27,7 @@ allStates.forEach((item) => {document.getElementById(item).setAttribute("class",
 pollButtonDefaultArray.forEach((item) => {document.getElementById(item).style.opacity = "0"});
 
 document.documentElement.style.setProperty('--stateColor', "rgb(100,105,115)");
-document.getElementById("buttonPollsClose").style.right = "9.5px";
+document.getElementById("buttonPollsClose").style.right = "1vw";
 
 resetElectoralCollege ()
 }
@@ -43,11 +43,11 @@ redStates.forEach((item) => {document.getElementById(item).setAttribute("class",
 
 document.documentElement.style.setProperty('--stateColor', 'rgb(100,105,115)');
 document.getElementById("button2012").style.right = "-70px";
-setTimeout(function () {document.getElementById("button2016").style.right = "9.5px"}, 500);
-setTimeout(function () {document.getElementById("buttonPollsClose").style.right = "9.5px";}, 500);
+setTimeout(function () {document.getElementById("button2016").style.right = "1vw"}, 500);
+setTimeout(function () {document.getElementById("buttonPollsClose").style.right = "1vw";}, 500);
 
 centerText()
-pollsAtOne()
+pollsAtOne();
 }
 
 function resetButton () {
@@ -65,7 +65,7 @@ blueStates.forEach((item) => {document.getElementById(item).setAttribute("class"
 redStates.forEach((item) => {document.getElementById(item).setAttribute("class", 'redProj')});
 
 document.documentElement.style.setProperty('--stateColor', 'rgb(100,105,115)');
-setTimeout(function () {document.getElementById("buttonPollsClose").style.right = "9.5px";}, 500);
+setTimeout(function () {document.getElementById("buttonPollsClose").style.right = "1vw";}, 500);
 
 centerText(); showHideMenu(); pollsAtOne();
 }
@@ -157,21 +157,21 @@ allStates.forEach((item) => {document.getElementById(item).setAttribute("class",
 
 var demSafe = ['CA','CO','CT','DC','DE','HI','IL','MA','MD','ME','ME1','NJ','NM','NY','OR','RI','VA','VT','WA'];
 var demLean = ['NH','NM','MN','MI'];
-var gopLean = ['TX','IA','OH','FL'];
-var gopSafe = ['AK','AL','AR','ID','IN','KS','KY','LA','MO','MS','MT','ND','NE','NE1','NE3','OK','SC','SD','TN','UT','WV','WY'];
+var gopLean = ['AK','TX','OH','FL'];
+var gopSafe = ['AL','AR','IA','ID','IN','KS','KY','LA','MO','MS','MT','ND','NE','NE1','NE3','OK','SC','SD','TN','UT','WV','WY'];
 
 demSafe.forEach((item) => {document.getElementById(item).classList.replace('state','blueProj')});
 demLean.forEach((item) => {document.getElementById(item).classList.replace('state','blueState')});
 gopLean.forEach((item) => {document.getElementById(item).classList.replace('state','redState')});
 gopSafe.forEach((item) => {document.getElementById(item).classList.replace('state','redProj')});
 
-data.classList.remove('grayState');
-document.documentElement.style.setProperty('--stateColor', yellowStateColor);
-data.classList.add('yellowState');
+// data.classList.remove('grayState');
+// document.documentElement.style.setProperty('--stateColor', yellowStateColor);
+// data.classList.add('yellowState');
 
-setTimeout(function () {showStateLabels()}, 100);
-
+showStateLabels();
 pollsAtOne();
+
 }
 
 function fillRed () {allStates.forEach((a) => {document.getElementById(a).classList.replace('state','redState')}); centerText(); showHideMenu();}
@@ -236,16 +236,6 @@ document.getElementById("WA").setAttribute("class", "pollsClosed");
 document.getElementById("WV").setAttribute("class", "pollsClosed");
 document.getElementById("WI").setAttribute("class", "pollsClosed");
 document.getElementById("WY").setAttribute("class", "pollsClosed");
-
-document.getElementById("pollsAtSeven").style.right = "100px";
-document.getElementById("pollsAtSevenThirty").style.right = "160px";
-document.getElementById("pollsAtEight").style.right = "220px";
-document.getElementById("pollsAtEightThirty").style.right = "280px";
-document.getElementById("pollsAtNine").style.right = "340px";
-document.getElementById("pollsAtTen").style.right = "400px";
-document.getElementById("pollsAtEleven").style.right = "460px";
-document.getElementById("pollsAtTwelve").style.right = "520px";
-document.getElementById("pollsAtOne").style.right = "580px";
 }
 
 function pollsAtSevenThirty () {
@@ -306,16 +296,6 @@ document.getElementById("WA").setAttribute("class", "pollsClosed");
 if(document.getElementById("WV").matches(selector)) {} else {document.getElementById("WV").setAttribute("class", "state")};
 document.getElementById("WI").setAttribute("class", "pollsClosed");
 document.getElementById("WY").setAttribute("class", "pollsClosed");
-
-document.getElementById("pollsAtSeven").style.top = "950px";
-document.getElementById("pollsAtSevenThirty").style.right = "100px";
-document.getElementById("pollsAtEight").style.right = "160px";
-document.getElementById("pollsAtEightThirty").style.right = "220px";
-document.getElementById("pollsAtNine").style.right = "280px";
-document.getElementById("pollsAtTen").style.right = "340px";
-document.getElementById("pollsAtEleven").style.right = "400px";
-document.getElementById("pollsAtTwelve").style.right = "460px";
-document.getElementById("pollsAtOne").style.right = "520px";
 }
 
 function pollsAtEight () {
@@ -375,16 +355,6 @@ document.getElementById("WA").setAttribute("class", "pollsClosed");
 if(document.getElementById("WV").matches(selector)) {} else {document.getElementById("WV").setAttribute("class", "state")};
 document.getElementById("WI").setAttribute("class", "pollsClosed");
 document.getElementById("WY").setAttribute("class", "pollsClosed");
-
-document.getElementById("pollsAtSeven").style.top = "950px";
-document.getElementById("pollsAtSevenThirty").style.top = "950px";
-document.getElementById("pollsAtEight").style.right = "100px";
-document.getElementById("pollsAtEightThirty").style.right = "160px";
-document.getElementById("pollsAtNine").style.right = "220px";
-document.getElementById("pollsAtTen").style.right = "280px";
-document.getElementById("pollsAtEleven").style.right = "340px";
-document.getElementById("pollsAtTwelve").style.right = "400px";
-document.getElementById("pollsAtOne").style.right = "460px";
 }
 
 function pollsAtEightThirty () {
@@ -445,16 +415,6 @@ document.getElementById("WA").setAttribute("class", "pollsClosed");
 if(document.getElementById("WV").matches(selector)) {} else {document.getElementById("WV").setAttribute("class", "state")};
 document.getElementById("WI").setAttribute("class", "pollsClosed");
 document.getElementById("WY").setAttribute("class", "pollsClosed");
-
-document.getElementById("pollsAtSeven").style.top = "950px";
-document.getElementById("pollsAtSevenThirty").style.top = "950px";
-document.getElementById("pollsAtEight").style.top = "950px";
-document.getElementById("pollsAtEightThirty").style.right = "100px";
-document.getElementById("pollsAtNine").style.right = "160px";
-document.getElementById("pollsAtTen").style.right = "220px";
-document.getElementById("pollsAtEleven").style.right = "280px";
-document.getElementById("pollsAtTwelve").style.right = "340px";
-document.getElementById("pollsAtOne").style.right = "400px";
 }
 
 function pollsAtNine () {
@@ -515,15 +475,6 @@ if(document.getElementById("WV").matches(selector)) {} else {document.getElement
 if(document.getElementById("WI").matches(selector)) {} else {document.getElementById("WI").setAttribute("class", "state")};
 if(document.getElementById("WY").matches(selector)) {} else {document.getElementById("WY").setAttribute("class", "state")};
 
-document.getElementById("pollsAtSeven").style.top = "950px";
-document.getElementById("pollsAtSevenThirty").style.top = "950px";
-document.getElementById("pollsAtEight").style.top = "950px";
-document.getElementById("pollsAtEightThirty").style.top = "950px";
-document.getElementById("pollsAtNine").style.right = "100px";
-document.getElementById("pollsAtTen").style.right = "160px";
-document.getElementById("pollsAtEleven").style.right = "220px";
-document.getElementById("pollsAtTwelve").style.right = "280px";
-document.getElementById("pollsAtOne").style.right = "340px";
 }
 
 function pollsAtTen () {
@@ -585,15 +536,6 @@ if(document.getElementById("WV").matches(selector)) {} else {document.getElement
 if(document.getElementById("WI").matches(selector)) {} else {document.getElementById("WI").setAttribute("class", "state")};
 if(document.getElementById("WY").matches(selector)) {} else {document.getElementById("WY").setAttribute("class", "state")};
 
-document.getElementById("pollsAtSeven").style.top = "950px";
-document.getElementById("pollsAtSevenThirty").style.top = "950px";
-document.getElementById("pollsAtEight").style.top = "950px";
-document.getElementById("pollsAtEightThirty").style.top = "950px";
-document.getElementById("pollsAtNine").style.top = "950px";
-document.getElementById("pollsAtTen").style.right = "100px";
-document.getElementById("pollsAtEleven").style.right = "160px";
-document.getElementById("pollsAtTwelve").style.right = "220px";
-document.getElementById("pollsAtOne").style.right = "280px";
 }
 
 function pollsAtEleven () {
@@ -653,16 +595,6 @@ if(document.getElementById("WA").matches(selector)) {} else {document.getElement
 if(document.getElementById("WV").matches(selector)) {} else {document.getElementById("WV").setAttribute("class", "state")};
 if(document.getElementById("WI").matches(selector)) {} else {document.getElementById("WI").setAttribute("class", "state")};
 if(document.getElementById("WY").matches(selector)) {} else {document.getElementById("WY").setAttribute("class", "state")};
-
-document.getElementById("pollsAtSeven").style.top = "950px";
-document.getElementById("pollsAtSevenThirty").style.top = "950px";
-document.getElementById("pollsAtEight").style.top = "950px";
-document.getElementById("pollsAtEightThirty").style.top = "950px";
-document.getElementById("pollsAtNine").style.top = "950px";
-document.getElementById("pollsAtTen").style.top = "950px";
-document.getElementById("pollsAtEleven").style.right = "100px";
-document.getElementById("pollsAtTwelve").style.right = "160px";
-document.getElementById("pollsAtOne").style.right = "220px";
 }
 
 function pollsAtTwelve () {
@@ -722,72 +654,13 @@ if(document.getElementById("WA").matches(selector)) {} else {document.getElement
 if(document.getElementById("WV").matches(selector)) {} else {document.getElementById("WV").setAttribute("class", "state")};
 if(document.getElementById("WI").matches(selector)) {} else {document.getElementById("WI").setAttribute("class", "state")};
 if(document.getElementById("WY").matches(selector)) {} else {document.getElementById("WY").setAttribute("class", "state")};
-
-document.getElementById("pollsAtSeven").style.top = "950px";
-document.getElementById("pollsAtSevenThirty").style.top = "950px";
-document.getElementById("pollsAtEight").style.top = "950px";
-document.getElementById("pollsAtEightThirty").style.top = "950px";
-document.getElementById("pollsAtNine").style.top = "950px";
-document.getElementById("pollsAtTen").style.top = "950px";
-document.getElementById("pollsAtEleven").style.top = "950px";
-document.getElementById("pollsAtTwelve").style.right = "100px";
-document.getElementById("pollsAtOne").style.right = "160px";
 }
 
-function pollsAtOne () {
-
-var pollButtons = ['pollsAtSeven','pollsAtSevenThirty','pollsAtEight','pollsAtEightThirty','pollsAtNine','pollsAtTen',
-'pollsAtEleven','pollsAtTwelve','pollsAtOne'];
-
-allStates.forEach((item) => {if(document.getElementById(item).matches(selector)) {} else {document.getElementById(item).setAttribute("class", "state")}});
-
-pollButtons.forEach((item) => {document.getElementById(item).style.top = "995px"});
-
-setTimeout(function () {pollButtons.forEach((item) => {document.getElementById(item).style.opacity = "1"})}, 100);
-
-setTimeout(function () {
-document.getElementById("pollsAtSeven").style.right = "100px";
-document.getElementById("pollsAtSevenThirty").style.right = "160px";
-document.getElementById("pollsAtEight").style.right = "220px";
-document.getElementById("pollsAtEightThirty").style.right = "280px";
-document.getElementById("pollsAtNine").style.right = "340px";
-document.getElementById("pollsAtTen").style.right = "400px";
-document.getElementById("pollsAtEleven").style.right = "460px";
-document.getElementById("pollsAtTwelve").style.right = "520px";
-document.getElementById("pollsAtOne").style.right = "580px";
-}, 300); centerText ()
+function pollsAtOne() {
+	allStates.forEach((item) => {if(document.getElementById(item).matches(selector)) {} else {document.getElementById(item).setAttribute("class", "state")}});
 }
 
 function closePolls () {
-setTimeout(function () {(document.getElementById("pollsAtSeven")).style.top = "895px"}, 100);
-setTimeout(function () {(document.getElementById("pollsAtSevenThirty")).style.top = "895px"}, 200);
-setTimeout(function () {(document.getElementById("pollsAtEight")).style.top = "895px"}, 300);
-setTimeout(function () {(document.getElementById("pollsAtEightThirty")).style.top = "895px"}, 400);
-setTimeout(function () {(document.getElementById("pollsAtNine")).style.top = "895px"}, 500);
-setTimeout(function () {(document.getElementById("pollsAtTen")).style.top = "895px"}, 600);
-setTimeout(function () {(document.getElementById("pollsAtEleven")).style.top = "895px"}, 700);
-setTimeout(function () {(document.getElementById("pollsAtTwelve")).style.top = "895px"}, 800);
-setTimeout(function () {(document.getElementById("pollsAtOne")).style.top = "895px"}, 900);
-
-document.getElementById("pollsAtSeven").style.right = "100px";
-document.getElementById("pollsAtSevenThirty").style.right = "160px";
-document.getElementById("pollsAtEight").style.right = "220px";
-document.getElementById("pollsAtEightThirty").style.right = "280px";
-document.getElementById("pollsAtNine").style.right = "340px";
-document.getElementById("pollsAtTen").style.right = "400px";
-document.getElementById("pollsAtEleven").style.right = "460px";
-document.getElementById("pollsAtTwelve").style.right = "520px";
-document.getElementById("pollsAtOne").style.right = "580px";
-
-document.getElementById("pollsAtSeven").style.opacity = 1;
-document.getElementById("pollsAtSevenThirty").style.opacity = 1;
-document.getElementById("pollsAtEight").style.opacity = 1;
-document.getElementById("pollsAtEightThirty").style.opacity = 1;
-document.getElementById("pollsAtNine").style.opacity = 1;
-document.getElementById("pollsAtTen").style.opacity = 1;
-document.getElementById("pollsAtEleven").style.opacity = 1;
-document.getElementById("pollsAtTwelve").style.opacity = 1;
-document.getElementById("pollsAtOne").style.opacity = 1;
-
-centerText(); showHideMenu();
+	allStates.forEach((item) => {document.getElementById(item).setAttribute("class", "pollsClosed")});
+	centerText();
 }
