@@ -391,9 +391,9 @@ html {font-variant-numeric: tabular-nums; cursor: pointer; -webkit-text-size-adj
 #newHeadingLogo {
 	height: 11.5%;
 	left: 29%;;
-	width: 42%;
 	top: 2.75%;
 	position: fixed;
+	width: auto;
 	opacity: 1;
 	transition: 0.7s;
 }
