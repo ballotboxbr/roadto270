@@ -436,7 +436,7 @@ function coverShow () {
 	document.getElementById("newHeadingLogo").style.height = "11.5%";
 	document.getElementById("newHeadingLogo").style.top = "2.75%";
 	document.getElementById("newHeadingLogo").style.left = "29%";
-	document.getElementById("newHeadingLogo").style.width = "42%";
+	document.getElementById("newHeadingLogo").style.width = "auto";
 }
 
 function showHideMenu () {
