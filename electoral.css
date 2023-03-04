@@ -396,6 +396,7 @@ html {font-variant-numeric: tabular-nums; cursor: pointer; -webkit-text-size-adj
 	width: auto;
 	opacity: 1;
 	transition: 0.7s;
+	display: hidden;
 }
 
 #loadOverlay{display: none;}
